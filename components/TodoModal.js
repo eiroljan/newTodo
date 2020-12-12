@@ -45,7 +45,7 @@ export default class TodoModal extends React.Component {
       this.props.updateList(list);
       Alert.alert(
         "Successfully!",
-        "ADDED!",
+        "ADD!",
         [{ text: "OK", onPress: () => "" }],
         { cancelable: false }
       );
@@ -136,19 +136,9 @@ export default class TodoModal extends React.Component {
             <View>
               <Text style={styles.title}>{list.name}</Text>
               <Text style={styles.taskCount}>
-                {completedCount} of {taskCount} tasks
+                 {taskCount} tasks
               </Text>
             </View>
-          </View>
-
-          <View style={[styles.section, { flex: 3, marginVertical: 16 }]}>
-            <FlatList
-              data={list.todos}
-              renderItem={({ item, index }) => this.renderTodo(item, index)}
-              keyExtractor={(item) => item.title}
-              contentContainerStyle={{}}
-              showsHorizontalScrollIndicator={false}
-            />
           </View>
 
           <View style={[styles.section, styles.footer]}>
@@ -161,9 +151,21 @@ export default class TodoModal extends React.Component {
               style={[styles.addTodo, { backgroundColor: list.color }]}
               onPress={() => this.addTodo()}
             >
-              <AntDesign name="plus" size={16} color={colors.white} />
+              <AntDesign name="plus" size={16} color={'gray'} />
             </TouchableOpacity>
           </View>
+
+          <View style={[styles.section, { flex: 3, marginVertical: 16 }]}>
+            <FlatList
+              data={list.todos}
+              renderItem={({ item, index }) => this.renderTodo(item, index)}
+              keyExtractor={(item) => item.title}
+              contentContainerStyle={{}}
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+
+          
         </SafeAreaView>
       </KeyboardAvoidingView>
     );
@@ -182,9 +184,9 @@ const styles = StyleSheet.create({
   },
   header: {
     justifyContent: "flex-end",
-    marginLeft: 64,
     borderBottomWidth: 3,
     paddingTop: 16,
+    marginLeft:10,
   },
   title: {
     fontSize: 30,

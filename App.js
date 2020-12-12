@@ -16,7 +16,7 @@ export default class App extends React.Component {
   componentDidMount() {
     firebase = new Fire((error, user) => {
       if (error) {
-        return alert("Uh oh, something went wrong");
+        return alert("something went wrong");
       }
       firebase.getLists((lists) => {
         this.setState({ lists, user }, () => {
@@ -83,7 +83,7 @@ export default class App extends React.Component {
           <View style={styles.divider} />
           <Text style={styles.title}>
             <Text>ToDo</Text>
-            <Text style={{ fontWeight: "300", color: colors.blue }}>List</Text>
+            <Text style={{ fontWeight: "300", color: 'gray' }}>List</Text>
           </Text>
           <View style={styles.divider} />
         </View>
@@ -92,11 +92,12 @@ export default class App extends React.Component {
             style={styles.addList}
             onPress={() => this.toggleAddTodoModal()}
           >
-            <AntDesign name="plus" size={16} color={colors.blue} />
+            <AntDesign name="plus" size={16} color={'gray'} />
           </TouchableOpacity>
           <Text style={styles.add}>Add List</Text>
         </View>
-        <View style={{ height: 370, margin: 5 }}>
+    
+        <View style={{ height: 370, margin: 5 ,}}>
           <FlatList
             data={this.state.lists}
             keyExtractor={(item) => item.id.toString()}
@@ -120,7 +121,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   divider: {
-    backgroundColor: colors.lightBlue,
     height: 1,
     flex: 1,
     alignSelf: "center",
@@ -135,15 +135,15 @@ const styles = StyleSheet.create({
   },
   addList: {
     borderWidth: 2,
-    borderColor: colors.lightBlue,
-    borderRadius: 4,
+    borderColor: 'gray',
+    borderRadius: 50,
     padding: 20,
     alignItems: "center",
     justifyContent: "center",
     marginTop:30,
   },
   add: {
-    color: colors.blue,
+    color: 'gray',
     fontWeight: "600",
     fontSize: 14,
     marginTop: 8,

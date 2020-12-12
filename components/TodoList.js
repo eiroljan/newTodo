@@ -66,10 +66,6 @@ export default class TodoList extends React.Component {
               <Text style={styles.count}>{remainingCount}</Text>
               <Text style={styles.subtitle}>Remaining</Text>
             </View>
-            <View style={styles.containers}>
-              <Text style={styles.count}>{completedCount}</Text>
-              <Text style={styles.subtitle}>Completed</Text>
-            </View>
           </View>
         </TouchableOpacity>
       </View>
@@ -82,26 +78,25 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderRadius: 10,
     alignItems: "center",
-
     width: 360,
   },
   listTitle: {
     fontSize: 24,
     fontWeight: "700",
-    color: Colors.white,
+    color: 'gray',
     marginBottom: 10,
   },
   count: {
     fontSize: 48,
     fontWeight: "200",
-    color: Colors.white,
+    color: 'gray',
     alignItems: "center",
     alignContent: "center",
   },
   subtitle: {
     fontSize: 12,
     fontWeight: "700",
-    color: Colors.white,
+    color: 'gray',
     alignItems: "center",
     alignContent: "center",
   },
@@ -111,6 +106,7 @@ const styles = StyleSheet.create({
     width: 300,
     justifyContent: "space-around",
   },
+  
   containers: {
     alignItems: "center",
     justifyContent: "center",
